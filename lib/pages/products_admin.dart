@@ -4,6 +4,11 @@ import './product_create.dart';
 import './product_list.dart';
 
 class ProductsAdminPage extends StatelessWidget {
+  final Function addProduct;
+  final Function deleteProduct;
+
+  ProductsAdminPage(this.addProduct, this.deleteProduct) {}
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -43,7 +48,7 @@ class ProductsAdminPage extends StatelessWidget {
         ),
         body: Center(
           child: TabBarView(
-            children: <Widget>[ProductCreatePage(), ProductListPage()],
+            children: <Widget>[ProductCreatePage(addProduct), ProductListPage()],
           ),
         ),
       ),
