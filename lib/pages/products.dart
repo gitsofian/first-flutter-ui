@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../product_manager.dart';
+import '../widgets/products/products.dart';
+
 
 class ProductsPage extends StatelessWidget {
   final List<Map<String, dynamic>> products;
-  
+
   ProductsPage(this.products);
 
   @override
@@ -17,10 +18,11 @@ class ProductsPage extends StatelessWidget {
               automaticallyImplyLeading: false,
               title: Text(
                 'Choose',
-                style: TextStyle(fontFamily: 'Charm'),
+                style: TextStyle(fontFamily: 'Montserrat'),
               ),
             ),
             ListTile(
+              leading: Icon(Icons.edit),
               title: Text('Manager Products'),
               onTap: () {
                 Navigator.pushReplacementNamed(context, '/admin');
@@ -31,8 +33,14 @@ class ProductsPage extends StatelessWidget {
       ),
       appBar: AppBar(
         title: Text('EasyList'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.favorite),
+            onPressed: () {},
+          )
+        ],
       ),
-      body: ProductManager(products),
+      body: Products(products),
     );
   }
 }
